@@ -11,8 +11,10 @@
 
 <body>
     @include('partials.navbar')
-    <main class="p-8">
-        @yield('content')
+    <main class="p-8 bg-gray-900 min-h-screen text-white sm:py-10">
+        <div class="mx-auto max-w-7xl lg:px-10">
+            @yield('content')
+        </div>
     </main>
 </body>
 
