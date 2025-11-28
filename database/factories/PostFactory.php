@@ -18,6 +18,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
+            'category_id' => fake()->numberBetween(1,5),
             'slug' => str::slug(fake()->sentence(3)),
             'title' => fake()->sentence(),
             'author' => fake()->name(),
