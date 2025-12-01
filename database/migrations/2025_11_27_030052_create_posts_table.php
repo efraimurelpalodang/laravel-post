@@ -20,7 +20,6 @@ return new class extends Migration
             );
             $table->string('slug')->unique();
             $table->string('title');
-            $table->string('author');
             $table->string('body');
             $table->timestamps();
         });

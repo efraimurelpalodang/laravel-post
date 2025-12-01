@@ -11,10 +11,15 @@ class Post extends Model
     use HasFactory;
 
     protected $table = 'posts';
-    protected $fillable = ['category_id','slug','tittle','author','body'];
+    protected $fillable = ['category_id','user_id','slug','tittle','author','body'];
 
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

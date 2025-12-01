@@ -26,8 +26,8 @@
                         alt="" class="size-10 rounded-full bg-gray-800" />
                     <div class="text-sm/6">
                         <p class="font-semibold text-white">
-                            <a href="#">
-                                {{ $post->author }}
+                            <a href="/author/{{ $post->author->username }}">
+                                {{ $post->author->name }}
                             </a>
                         </p>
                         <p class="text-gray-400">Director of Product</p>
