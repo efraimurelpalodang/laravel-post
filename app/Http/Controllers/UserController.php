@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         return view('posts', [
             'title' => 'post detail',
-            'posts' => $author->posts,
+            'posts' => $author->posts->load(['category','author']),
             'page' => 'Post By '.$author->name,
         ]);
     }

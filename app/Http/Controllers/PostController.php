@@ -15,7 +15,9 @@ class PostController extends Controller
         return view('posts', [
             'title' => 'Posts',
             // 'posts' => Post::all(),
-            'posts' => Post::latest()->get(), //! agar yang ditampilkan yang paling baru bukan berdasarkan id
+            //! menambahkan with untuk menghindari leazy loading (problem N + 1)
+            
+            'posts' => Post::with(['category','author'])->latest()->get(), //! agar yang ditampilkan yang paling baru bukan berdasarkan id
             'page' => 'All Posts',
         ]);
     }

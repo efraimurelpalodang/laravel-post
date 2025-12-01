@@ -41,7 +41,7 @@
                     <div class="text-sm/6">
                         <p class="font-semibold text-white">
                             <a href="#">
-                                {{ $post->user->name }}
+                                {{ $post->author->name }}
                             </a>
                         </p>
                         <p class="text-gray-400">Front-end Developer</p>

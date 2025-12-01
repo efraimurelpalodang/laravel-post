@@ -11,7 +11,7 @@ class CategoryController extends Controller
     {
         return view('category.index', [
             'title' => 'Categories',
-            'categories' => Category::all(),
+            'categories' => Category::with(['posts'])->get(),
         ]);
     }
 
@@ -19,7 +19,7 @@ class CategoryController extends Controller
     {
         return view('posts', [
             'title' => 'post detail',
-            'posts' => $category->posts,
+            'posts' => $category->posts->load(['category','author']),
             'page' => 'Post in '.$category->name,
         ]);
     }
