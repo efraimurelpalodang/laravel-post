@@ -4,7 +4,7 @@
         <div class="mx-auto max-w-full lg:mx-0 grid grid-cols-3">
             <h2 class="text-4xl font-semibold tracking-tight col-span-2 text-pretty sm:text-5xl">Detail Blog</h2>
             <div class="col-end-4 ml-32">
-                <a href="/blogs"
+                <a href="{{ url()->previous() }}"
                     class="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group inline-block"
                     type="button">
                     <div

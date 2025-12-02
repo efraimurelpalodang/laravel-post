@@ -1,7 +1,23 @@
 @extends('layouts.main')
 @section('content')
-    <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2 class="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">{{ $page }}</h2>
+    <div class="mx-auto grid grid-cols-6 lg:mx-0">
+        <h2 class="text-4xl font-semibold tracking-tight text-pretty col-span-3 text-white sm:text-5xl">{{ $page }}</h2>
+        @if (request()->is('categories/*') || request()->is('author/*'))
+            <a href="{{ url()->previous() }}"
+                class="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group inline-block col-end-7"
+                type="button">
+                <div
+                    class="bg-green-400 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-1 group-hover:w-[184px] z-10 duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="25px" width="25px">
+                        <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" fill="#000000"></path>
+                        <path
+                            d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                            fill="#000000"></path>
+                    </svg>
+                </div>
+                <p class="translate-x-2 mt-3 ml-4">Go Back</p>
+            </a>
+        @endif
     </div>
     <div
         class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-700 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
