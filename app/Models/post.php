@@ -13,6 +13,9 @@ class Post extends Model
     protected $table = 'posts';
     protected $fillable = ['category_id','user_id','slug','tittle','author','body'];
 
+    //! menambahkan with untuk menghindari leazy loading (problem N + 1)
+    protected $with = ['category','author'];
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
