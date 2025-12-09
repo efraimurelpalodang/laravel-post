@@ -3,7 +3,7 @@
     <div class="mx-auto grid grid-cols-6 lg:mx-0 mb-8">
         <h2 class="text-4xl font-semibold tracking-tight text-pretty col-span-3 text-white sm:text-5xl">{{ $page }}
         </h2>
-        @if (request()->is('categories/*') || request()->is('author/*'))
+        @if (request('category') || request('author'))
             <a href="{{ url()->previous() }}"
                 class="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group inline-block col-end-7"
                 type="button">
@@ -23,6 +23,12 @@
     <div class="grid grid-cols-6">
         <form class="col-span-4 col-start-2 flex justify-center">
             <div class="w-full max-w-xl min-w-[200px]">
+                @if (request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
+                @if (request('author'))
+                    <input type="hidden" name="author" value="{{ request('author') }}">
+                @endif
                 <div class="relative flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                         class="absolute w-5 h-5 top-2.5 left-2.5 text-slate-600">
@@ -54,7 +60,7 @@
                         alt="programmer">
                     <div class="flex items-center gap-x-4 text-xs mt-3">
                         <time datetime="2020-02-12" class="text-gray-400">{{ $post->created_at->diffForHumans() }}</time>
-                        <a href="/categories/{{ $post->category->slug }}"
+                        <a href="/blogs?category={{ $post->category->slug }}"
                             class="relative z-10 rounded-full bg-gray-800/60 px-3 py-1.5 font-medium text-gray-300 hover:bg-gray-800">{{ $post->category->name }}</a>
                     </div>
                     <div class="group relative grow">
@@ -71,7 +77,7 @@
                             alt="" class="size-10 rounded-full bg-gray-800" />
                         <div class="text-sm/6">
                             <p class="font-semibold text-white">
-                                <a href="/author/{{ $post->author->username }}">
+                                <a href="/blogs?author={{ $post->author->username }}">
                                     {{ $post->author->name }}
                                 </a>
                             </p>
@@ -82,7 +88,7 @@
             @endforeach
         </div>
     @else
-        <x-not-found></x-not-found>
+        <p class="text-3xl text-center capitalize mt-30">not posts found</p>
     @endif
 
 @endsection

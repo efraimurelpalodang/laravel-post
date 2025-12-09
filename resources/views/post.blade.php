@@ -24,7 +24,7 @@
             <article class="flex max-w-full flex-col items-start justify-between">
                 <div class="flex items-center gap-x-4 text-xs">
                     <time datetime="2020-03-10" class="text-gray-400">{{ $post->created_at->format('j F Y') }}</time>
-                    <a href="/categories/{{ $post->category->slug }}"
+                    <a href="/blogs?category={{ $post->category->slug }}"
                         class="relative z-10 rounded-full bg-gray-800/60 px-3 py-1.5 font-medium text-gray-300 hover:bg-gray-800">{{ $post->category->name }}</a>
                 </div>
                 <div class="group relative grow">
@@ -40,7 +40,7 @@
                         alt="" class="size-10 rounded-full bg-gray-800" />
                     <div class="text-sm/6">
                         <p class="font-semibold text-white">
-                            <a href="#">
+                            <a href="/blogs?author={{ $post->author->username }}">
                                 {{ $post->author->name }}
                             </a>
                         </p>
