@@ -53,7 +53,7 @@
     </div>
     @if ($posts->count())
         <div
-            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-700 pt-5 sm:mt-8 sm:pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-700 pt-5 sm:mt-8 sm:pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3 mb-10">
             @foreach ($posts as $post)
                 <article class="flex max-w-xl flex-col items-start justify-between">
                     <img src="https://dicoding-assets.sgp1.cdn.digitaloceanspaces.com/blog/wp-content/uploads/2020/04/internship-rendi-photo-backend.png"
@@ -90,5 +90,7 @@
     @else
         <p class="text-3xl text-center capitalize mt-30">not posts found</p>
     @endif
+
+    {{ $posts->links() }}
 
 @endsection
