@@ -12,7 +12,7 @@
             <a href="/categories" class="text-sm/6 font-semibold text-white">Categories</a>
         </el-popover-group>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" class="text-sm/6 font-semibold text-white">Log in <span
+            <a href="/login" class="text-sm/6 font-semibold text-white">Log in <span
                     aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
